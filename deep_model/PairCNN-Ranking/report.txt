@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------
+Processing file 'Ranking.py'
+ outputting to 'Ranking.py'
+--------------------------------------------------------------------------------
+
+'Ranking.py' Line 74
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:         self.h_pool_left = tf.reshape(tf.concat(3, pooled_outputs_left), [-1, num_filters_total], name='h_pool_left')
+                                                                                                                               
+    New:         self.h_pool_left = tf.reshape(tf.concat(axis=3, values=pooled_outputs_left), [-1, num_filters_total], name='h_pool_left')
+                                                         ~~~~~   ~~~~~~~                                                                   
+
+'Ranking.py' Line 75
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:         self.h_pool_right = tf.reshape(tf.concat(3, pooled_outputs_right), [-1, num_filters_total], name='h_pool_right')
+                                                                                                                                  
+    New:         self.h_pool_right = tf.reshape(tf.concat(axis=3, values=pooled_outputs_right), [-1, num_filters_total], name='h_pool_right')
+                                                          ~~~~~   ~~~~~~~                                                                     
+
+'Ranking.py' Line 86
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.mul' to 'tf.multiply'
+
+    Old:             self.sims = tf.reduce_sum(tf.mul(self.transform_left, self.h_pool_right), 1, keep_dims=True)
+                                               ~~~~~~                                                             
+    New:             self.sims = tf.reduce_sum(tf.multiply(self.transform_left, self.h_pool_right), 1, keep_dims=True)
+                                               ~~~~~~~~~~~                                                             
+
+'Ranking.py' Line 93
+--------------------------------------------------------------------------------
+
+Added keyword 'concat_dim' to reordered function 'tf.concat'
+Added keyword 'values' to reordered function 'tf.concat'
+
+    Old:         self.new_input = tf.concat(1, [self.h_pool_left, self.sims, self.h_pool_right], name='new_input')
+                                                                                                                   
+    New:         self.new_input = tf.concat(axis=1, values=[self.h_pool_left, self.sims, self.h_pool_right], name='new_input')
+                                            ~~~~~   ~~~~~~~                                                                    
+
+'Ranking.py' Line 125
+--------------------------------------------------------------------------------
+
+Added keyword 'logits' to reordered function 'tf.nn.softmax_cross_entropy_with_logits'
+Added keyword 'labels' to reordered function 'tf.nn.softmax_cross_entropy_with_logits'
+
+    Old:             losses = tf.nn.softmax_cross_entropy_with_logits(self.scores, self.input_y)
+                                                                                                 
+    New:             losses = tf.nn.softmax_cross_entropy_with_logits(logits=self.scores, labels=self.input_y)
+                                                                      ~~~~~~~             ~~~~~~~              
+
+
