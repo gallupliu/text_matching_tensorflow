@@ -1,0 +1,16 @@
+--------------------------------------------------------------------------------
+Processing file 'train.py'
+ outputting to 'train.py'
+--------------------------------------------------------------------------------
+
+'train.py' Line 132
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old:         sess.run(tf.initialize_all_variables())
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+    New:         sess.run(tf.global_variables_initializer())
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+
+
